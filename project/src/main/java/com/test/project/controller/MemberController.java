@@ -25,8 +25,7 @@ public class MemberController {
     private static final String JDBC_USERNAME = "root";
     private static final String JDBC_PASSWORD = "1234";
 
-
-    @GetMapping("main")
+    @GetMapping("/main")
     public String getMain() {
         return "main";
     }
@@ -43,9 +42,11 @@ public class MemberController {
                 statement.setString(2, passwd);
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if(resultSet.next()) {
+                        String name = resultSet.getString("name");
+
                         HttpSession session = request.getSession(); // 로그인 성공 시 세션 세팅
                         session.setAttribute("id", id);
-
+                        session.setAttribute("name", name);
                         return "redirect:/main";
                     } else {
                         // 로그인 실패 메시지 추가

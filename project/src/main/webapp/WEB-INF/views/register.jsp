@@ -24,6 +24,10 @@
                     <legend style="text-align: center;">LOGIN</legend>
                     <table>
                         <tr>
+                            <td>이름: </td>
+                            <td><input type="text" name="name" placeholder="이름" required></td>
+                        </tr>
+                        <tr>
                             <td>아이디: </td>
                             <td><input type="text" name="id" placeholder="아이디" required></td>
                         </tr>
